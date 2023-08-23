@@ -7,6 +7,7 @@
 #include "katedocument.h"
 
 #include <KPluginFactory>
+#include <KXmlGui5ConfigMigration>
 
 /**
  * wrapper factory to be sure nobody external deletes our kateglobal object
@@ -22,6 +23,12 @@ class KateFactory : public KPluginFactory
     Q_INTERFACES(KPluginFactory)
 
 public:
+    KateFactory()
+    {
+        // copy KF5-time user toolbar configuration, keep old copy for users of KF5 plugin version
+        KXmlGui5ConfigMigration::migrate(QStringLiteral("katepart"), {QStringLiteral("katepart5ui.rc")}, KXmlGui5ConfigMigration::NoMigrationOptions);
+    }
+
     /**
      * This function is called when the factory asked to create an Object.
      *
