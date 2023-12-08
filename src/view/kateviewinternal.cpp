@@ -3656,7 +3656,7 @@ void KateViewInternal::mouseReleaseEvent(QMouseEvent *e)
         if (!view()->config()->mousePasteAtCursorPosition()) {
             placeCursor(e->pos());
         }
-        
+
         e->accept();
         break;
 
