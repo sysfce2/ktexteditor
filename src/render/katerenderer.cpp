@@ -1519,13 +1519,13 @@ void KateRenderer::paintSelection(QPaintDevice *d, int startLine, int xStart, in
         }
 
         // compute layout WITHOUT cache to not poison it + render it
-        KateLineLayout lineLayout(*this);
-        lineLayout.setLine(line, -1);
-        layoutLine(&lineLayout, -1 /* no wrap */, false /* no layout cache */);
+        auto lineLayout = KateLineLayout::create(*this);
+        lineLayout->setLine(line, -1);
+        layoutLine(lineLayout, -1 /* no wrap */, false /* no layout cache */);
         KateRenderer::PaintTextLineFlags flags;
         flags.setFlag(KateRenderer::SkipDrawFirstInvisibleLineUnderlined);
         flags.setFlag(KateRenderer::SkipDrawLineSelection);
-        paintTextLine(paint, &lineLayout, 0, 0, QRectF{}, nullptr, flags);
+        paintTextLine(paint, lineLayout, 0, 0, QRectF{}, nullptr, flags);
 
         // translate for next line
         paint.translate(0, lineHeight);

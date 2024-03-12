@@ -1033,7 +1033,7 @@ public:
     }
     CalculatingCursor &operator+=(int n) override
     {
-        KateLineLayout *thisLine = m_vi->cache()->line(line());
+        const auto thisLine = m_vi->cache()->line(line());
         if (!thisLine || !thisLine->isValid()) {
             qCWarning(LOG_KTE) << "Did not retrieve valid layout for line " << line();
             return *this;
@@ -1107,7 +1107,7 @@ public:
 
     CalculatingCursor &operator+=(int n) override
     {
-        KateLineLayout *thisLine = m_vi->cache()->line(line());
+        auto thisLine = m_vi->cache()->line(line());
         if (!thisLine || !thisLine->isValid()) {
             qCWarning(LOG_KTE) << "Did not retrieve a valid layout for line " << line();
             return *this;
@@ -1274,7 +1274,7 @@ public:
 
     CalculatingCursor &operator+=(int n) override
     {
-        KateLineLayout *thisLine = m_vi->cache()->line(line());
+        const auto thisLine = m_vi->cache()->line(line());
         if (!thisLine || !thisLine->isValid()) {
             qCWarning(LOG_KTE) << "Did not retrieve valid layout for line " << line();
             return *this;
@@ -1753,7 +1753,7 @@ KateTextLayout KateViewInternal::nextLayout(KTextEditor::Cursor c) const
 {
     int currentViewLine = cache()->viewLine(c) + 1;
 
-    const KateLineLayout *thisLine = cache()->line(c.line());
+    const auto thisLine = cache()->line(c.line());
     if (thisLine && currentViewLine >= thisLine->viewLineCount()) {
         currentViewLine = 0;
         return cache()->textLayout(view()->textFolding().visibleLineToLine(toVirtualCursor(c).line() + 1), currentViewLine);
@@ -1828,7 +1828,7 @@ KTextEditor::Cursor KateViewInternal::viewLineOffset(const KTextEditor::Cursor v
 
     while (virtualLine >= 0 && virtualLine < (int)view()->textFolding().visibleLines()) {
         int realLine = view()->textFolding().visibleLineToLine(virtualLine);
-        KateLineLayout *thisLine = cache()->line(realLine, virtualLine);
+        auto thisLine = cache()->line(realLine, virtualLine);
         if (!thisLine) {
             break;
         }
@@ -2251,7 +2251,7 @@ int KateViewInternal::maxLen(int startLine)
             break;
         }
 
-        const KateLineLayout *line = cache()->line(view()->textFolding().visibleLineToLine(virtualLine));
+        const auto line = cache()->line(view()->textFolding().visibleLineToLine(virtualLine));
         if (!line) {
             continue;
         }
