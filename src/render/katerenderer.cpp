@@ -702,7 +702,7 @@ void KateRenderer::paintTextLine(QPainter &paint,
         currentViewLine = range->viewLineForColumn(cursor->column());
     }
 
-    paintTextLineBackground(paint, range, currentViewLine, xStart, xEnd);
+    paintTextLineBackground(paint, range.get(), currentViewLine, xStart, xEnd);
 
     // Draws the dashed underline at the start of a folded block of text.
     if (!(flags & SkipDrawFirstInvisibleLineUnderlined) && range->startsInvisibleBlock()) {
@@ -763,13 +763,13 @@ void KateRenderer::paintTextLine(QPainter &paint,
                                                return sr.overlapsLine(line) && sr.overlapsColumn(fr.start) && fr.format.background().color() == c;
                                            }),
                             decos.end());
-                paintTextBackground(paint, range, decos, Qt::NoBrush, xStart);
+                paintTextBackground(paint, range.get(), decos, Qt::NoBrush, xStart);
             }
 
             if (drawSelection) {
                 additionalFormats = decorationsForLine(range->textLine(), range->line(), true);
                 if (hasCustomLineHeight()) {
-                    paintTextBackground(paint, range, additionalFormats, config()->selectionColor(), xStart);
+                    paintTextBackground(paint, range.get(), additionalFormats, config()->selectionColor(), xStart);
                 }
                 // DONT apply clipping, it breaks rendering when there are selections
                 range->layout()->draw(&paint, QPoint(-xStart, 0), additionalFormats);
@@ -786,7 +786,7 @@ void KateRenderer::paintTextLine(QPainter &paint,
             auto cur = *cursor;
             cur.setColumn(cur.column() - 1);
             if (!m_currentBracketRange.boundaryAtCursor(*cursor) && m_currentBracketRange.end() != cur && m_currentBracketRange.start() != cur) {
-                m_currentBracketRange = cursorAtBracket(view(), range, spaceWidth(), *cursor, m_currentBracketX);
+                m_currentBracketRange = cursorAtBracket(view(), range.get(), spaceWidth(), *cursor, m_currentBracketX);
             }
         }
 
@@ -951,13 +951,13 @@ void KateRenderer::paintTextLine(QPainter &paint,
                 for (; mIt != secCursors.end(); ++mIt) {
                     auto cursor = mIt->cursor();
                     if (cursor.line() == range->line()) {
-                        paintCaret(cursor, range, paint, xStart, xEnd);
+                        paintCaret(cursor, range.get(), paint, xStart, xEnd);
                     } else {
                         break;
                     }
                 }
             }
-            paintCaret(*cursor, range, paint, xStart, xEnd);
+            paintCaret(*cursor, range.get(), paint, xStart, xEnd);
         }
     }
 

@@ -907,7 +907,7 @@ Range ModeBase::goVisualLineUpDown(int lines)
         // Find the beginning of the visual line "lines" visual lines down.
         while (count > 0) {
             finishVisualLine++;
-            const KateLineLayout *lineLayout = cache->line(finishRealLine);
+            const auto lineLayout = cache->line(finishRealLine);
             if (lineLayout && finishVisualLine >= lineLayout->viewLineCount()) {
                 finishRealLine++;
                 finishVisualLine = 0;

@@ -243,7 +243,7 @@ KateLineLayout::Ptr KateLayoutCache::line(int realLine, int virtualLine)
         return nullptr;
     }
 
-    KateLineLayout *l = new KateLineLayout(*m_renderer);
+    auto l = KateLineLayout::create(*m_renderer);
     l->setLine(realLine, virtualLine);
 
     // Mark it dirty, because it may not have the syntax highlighting applied
@@ -260,7 +260,7 @@ KateLineLayout::Ptr KateLayoutCache::line(int realLine, int virtualLine)
     }
 
     // transfer ownership to m_lineLayouts
-    m_lineLayouts.insert(realLine, std::unique_ptr<KateLineLayout>(l));
+    m_lineLayouts.insert(realLine, l);
     return l;
 }
 
@@ -318,7 +318,7 @@ int KateLayoutCache::viewLine(const KTextEditor::Cursor realCursor)
         return 0;
     }
 
-    KateLineLayout *thisLine = line(realCursor.line());
+    const auto thisLine = line(realCursor.line());
     if (!thisLine) {
         return 0;
     }
@@ -411,7 +411,7 @@ int KateLayoutCache::lastViewLine(int realLine)
         return 0;
     }
 
-    if (KateLineLayout *l = line(realLine)) {
+    if (const auto l = line(realLine)) {
         return l->viewLineCount() - 1;
     }
     return 0;
