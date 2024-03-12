@@ -40,6 +40,11 @@ public:
     using Ptr = std::shared_ptr<KateLineLayout>;
 
     /**
+     * Weak pointer to the layout for inside KateTextLayout.
+     */
+    using WeakPtr = std::weak_ptr<KateLineLayout>;
+
+    /**
      * Constructor shall be only used for create, we only work with the shared pointer outside.
      */
     explicit KateLineLayout(KateRenderer &renderer, ConstructorToken);
