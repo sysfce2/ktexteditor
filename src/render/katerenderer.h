@@ -13,6 +13,8 @@
 #define KATE_RENDERER_H
 
 #include "kateconfig.h"
+#include "katelinelayout.h"
+
 #include "ktexteditor/range.h"
 
 #include <QFlags>
@@ -277,7 +279,7 @@ public:
     /**
      * Text width & height calculation functions...
      */
-    void layoutLine(KateLineLayout *line, int maxwidth = -1, bool cacheLayout = false) const;
+    void layoutLine(KateLineLayout::Ptr line, int maxwidth = -1, bool cacheLayout = false) const;
 
     /**
      * This is a smaller QString::isRightToLeft(). It's also marked as internal to kate
@@ -358,7 +360,7 @@ public:
      * @param flags           flags for customizing the drawing of the line
      */
     void paintTextLine(QPainter &paint,
-                       KateLineLayout *range,
+                       KateLineLayout::Ptr range,
                        int xStart,
                        int xEnd,
                        const QRectF &textClipRect = QRectF(),

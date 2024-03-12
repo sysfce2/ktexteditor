@@ -16,7 +16,7 @@
 #include "katedocument.h"
 #include "katerenderer.h"
 
-KateLineLayout::KateLineLayout(KateRenderer &renderer)
+KateLineLayout::KateLineLayout(KateRenderer &renderer, ConstructorToken)
     : m_renderer(renderer)
     , m_line(-1)
     , m_virtualLine(-1)

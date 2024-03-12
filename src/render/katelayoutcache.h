@@ -21,15 +21,15 @@ class KateLineLayoutMap
 public:
     void clear();
 
-    void insert(int realLine, std::unique_ptr<KateLineLayout> lineLayoutPtr);
+    void insert(int realLine, KateLineLayout::Ptr lineLayoutPtr);
 
     void relayoutLines(int startRealLine, int endRealLine);
 
     void slotEditDone(int fromLine, int toLine, int shiftAmount, std::vector<KateTextLayout> &textLayouts);
 
-    KateLineLayout *find(int i);
+    KateLineLayout::Ptr find(int i);
 
-    typedef std::pair<int, std::unique_ptr<KateLineLayout>> LineLayoutPair;
+    typedef std::pair<int, KateLineLayout::Ptr> LineLayoutPair;
 
 private:
     typedef std::vector<LineLayoutPair> LineLayoutMap;
@@ -82,7 +82,7 @@ public:
      * \param virtualLine virtual line number. only needed if you think it may have changed
      *                    (ie. basically internal to KateLayoutCache)
      */
-    KateLineLayout *line(int realLine, int virtualLine = -1);
+    KateLineLayout::Ptr line(int realLine, int virtualLine = -1);
 
     /// Returns the layout describing the text line which is occupied by \p realCursor.
     KateTextLayout textLayout(const KTextEditor::Cursor realCursor);

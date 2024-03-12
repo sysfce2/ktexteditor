@@ -365,10 +365,10 @@ void PrintPainter::configure(const QPrinter *printer, PageLayout &pl) const
         int totalLines = 0;
         // TODO: right now ignores selection printing
         for (unsigned int i = pl.firstline; i <= pl.lastline; ++i) {
-            KateLineLayout rangeptr(*m_renderer);
-            rangeptr.setLine(i);
-            m_renderer->layoutLine(&rangeptr, (int)pl.maxWidth, false);
-            totalLines += rangeptr.viewLineCount();
+            auto rangeptr = KateLineLayout::create(*m_renderer);
+            rangeptr->setLine(i);
+            m_renderer->layoutLine(rangeptr, (int)pl.maxWidth, false);
+            totalLines += rangeptr->viewLineCount();
         }
 
         const int totalPages = (totalLines / linesPerPage) + ((totalLines % linesPerPage) > 0 ? 1 : 0);
@@ -635,29 +635,29 @@ void PrintPainter::paintBackground(QPainter &painter, const uint y, const PageLa
 void PrintPainter::paintLine(QPainter &painter, const uint line, uint &y, uint &remainder, const PageLayout &pl) const
 {
     // HA! this is where we print [part of] a line ;]]
-    KateLineLayout rangeptr(*m_renderer);
-    rangeptr.setLine(line);
-    m_renderer->layoutLine(&rangeptr, (int)pl.maxWidth, false);
+    auto rangeptr = KateLineLayout::create(*m_renderer);
+    rangeptr->setLine(line);
+    m_renderer->layoutLine(rangeptr, (int)pl.maxWidth, false);
 
     // selectionOnly: clip non-selection parts and adjust painter position if needed
     int _xadjust = 0;
     if (pl.selectionOnly) {
         if (m_view && m_view->blockSelection()) {
-            int _x = m_renderer->cursorToX(rangeptr.viewLine(0), pl.selectionRange.start());
-            int _x1 = m_renderer->cursorToX(rangeptr.viewLine(rangeptr.viewLineCount() - 1), pl.selectionRange.end());
+            int _x = m_renderer->cursorToX(rangeptr->viewLine(0), pl.selectionRange.start());
+            int _x1 = m_renderer->cursorToX(rangeptr->viewLine(rangeptr->viewLineCount() - 1), pl.selectionRange.end());
             _xadjust = _x;
             painter.translate(-_xadjust, 0);
-            painter.setClipRegion(QRegion(_x, 0, _x1 - _x, rangeptr.viewLineCount() * m_fontHeight));
+            painter.setClipRegion(QRegion(_x, 0, _x1 - _x, rangeptr->viewLineCount() * m_fontHeight));
 
         } else if (line == pl.firstline || line == pl.lastline) {
-            QRegion region(0, 0, pl.maxWidth, rangeptr.viewLineCount() * m_fontHeight);
+            QRegion region(0, 0, pl.maxWidth, rangeptr->viewLineCount() * m_fontHeight);
 
             if (line == pl.firstline) {
-                region = region.subtracted(QRegion(0, 0, m_renderer->cursorToX(rangeptr.viewLine(0), pl.selectionRange.start()), m_fontHeight));
+                region = region.subtracted(QRegion(0, 0, m_renderer->cursorToX(rangeptr->viewLine(0), pl.selectionRange.start()), m_fontHeight));
             }
 
             if (line == pl.lastline) {
-                int _x = m_renderer->cursorToX(rangeptr.viewLine(rangeptr.viewLineCount() - 1), pl.selectionRange.end());
+                int _x = m_renderer->cursorToX(rangeptr->viewLine(rangeptr->viewLineCount() - 1), pl.selectionRange.end());
                 region = region.subtracted(QRegion(_x, 0, pl.maxWidth - _x, m_fontHeight));
             }
 
@@ -667,7 +667,7 @@ void PrintPainter::paintLine(QPainter &painter, const uint line, uint &y, uint &
 
     // If the line is too long (too many 'viewlines') to fit the remaining vertical space,
     // clip and adjust the painter position as necessary
-    int _lines = rangeptr.viewLineCount(); // number of "sublines" to paint.
+    int _lines = rangeptr->viewLineCount(); // number of "sublines" to paint.
 
     int proceedLines = _lines;
     if (remainder) {
@@ -692,7 +692,7 @@ void PrintPainter::paintLine(QPainter &painter, const uint line, uint &y, uint &
         flags.setFlag(KateRenderer::PaintTextLineFlag::SkipDrawFirstInvisibleLineUnderlined);
     }
 
-    m_renderer->paintTextLine(painter, &rangeptr, 0, (int)pl.maxWidth, QRectF{}, nullptr, flags);
+    m_renderer->paintTextLine(painter, rangeptr, 0, (int)pl.maxWidth, QRectF{}, nullptr, flags);
 
     painter.setClipping(false);
     painter.translate(_xadjust, (m_fontHeight * (_lines - remainder)));

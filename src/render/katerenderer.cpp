@@ -683,7 +683,7 @@ void KateRenderer::paintTextBackground(QPainter &paint,
 }
 
 void KateRenderer::paintTextLine(QPainter &paint,
-                                 KateLineLayout *range,
+                                 KateLineLayout::Ptr range,
                                  int xStart,
                                  int xEnd,
                                  const QRectF &textClipRect,
@@ -1244,7 +1244,7 @@ qreal KateRenderer::spaceWidth() const
     return m_fontMetrics.horizontalAdvance(spaceChar);
 }
 
-void KateRenderer::layoutLine(KateLineLayout *lineLayout, int maxwidth, bool cacheLayout) const
+void KateRenderer::layoutLine(KateLineLayout::Ptr lineLayout, int maxwidth, bool cacheLayout) const
 {
     // if maxwidth == -1 we have no wrap
 

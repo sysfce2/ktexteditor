@@ -8,9 +8,7 @@
 #ifndef _KATE_LINELAYOUT_H_
 #define _KATE_LINELAYOUT_H_
 
-#include <QExplicitlySharedDataPointer>
-#include <QSharedData>
-
+#include <memory>
 #include <optional>
 
 #include "katetextline.h"
@@ -27,8 +25,32 @@ class KateRenderer;
 
 class KateLineLayout
 {
+private:
+    /**
+     * Constructor shall be only used for create, we only work with the shared pointer outside.
+     */
+    class ConstructorToken
+    {
+    };
+
 public:
-    explicit KateLineLayout(KateRenderer &renderer);
+    /**
+     * Shared pointer to the layout, we always work on them.
+     */
+    using Ptr = std::shared_ptr<KateLineLayout>;
+
+    /**
+     * Constructor shall be only used for create, we only work with the shared pointer outside.
+     */
+    explicit KateLineLayout(KateRenderer &renderer, ConstructorToken);
+
+    /**
+     * Constructor is private, we only work with the shared pointer outside.
+     */
+    static Ptr create(KateRenderer &renderer)
+    {
+        return std::make_shared<KateLineLayout>(renderer, ConstructorToken());
+    }
 
     void debugOutput() const;
 
