@@ -30,7 +30,7 @@ void KateLineLayoutMap::clear()
     m_lineLayouts.clear();
 }
 
-void KateLineLayoutMap::insert(int realLine, std::unique_ptr<KateLineLayout> lineLayoutPtr)
+void KateLineLayoutMap::insert(int realLine, KateLineLayout::Ptr lineLayoutPtr)
 {
     auto it = std::lower_bound(m_lineLayouts.begin(), m_lineLayouts.end(), LineLayoutPair(realLine, nullptr), lessThan);
     if (it != m_lineLayouts.end() && (*it) == LineLayoutPair(realLine, nullptr)) {
@@ -81,13 +81,13 @@ void KateLineLayoutMap::slotEditDone(int fromLine, int toLine, int shiftAmount, 
     }
 }
 
-KateLineLayout *KateLineLayoutMap::find(int i)
+KateLineLayout::Ptr KateLineLayoutMap::find(int i)
 {
-    const auto it = std::lower_bound(m_lineLayouts.begin(), m_lineLayouts.end(), LineLayoutPair(i, nullptr), lessThan);
+    const auto it = std::lower_bound(m_lineLayouts.begin(), m_lineLayouts.end(), LineLayoutPair(i, {}), lessThan);
     if (it != m_lineLayouts.end() && it->first == i) {
-        return it->second.get();
+        return it->second;
     }
-    return nullptr;
+    return {};
 }
 // END KateLineLayoutMap
 
@@ -125,7 +125,7 @@ void KateLayoutCache::updateViewCache(const KTextEditor::Cursor startPos, int ne
     // compute the correct view line
     int _viewLine = 0;
     if (wrap()) {
-        if (KateLineLayout *l = line(realLine)) {
+        if (auto l = line(realLine)) {
             Q_ASSERT(l->isValid());
             Q_ASSERT(l->length() >= startPos.column() || m_renderer->view()->wrapCursor());
             bool found = false;
@@ -161,7 +161,7 @@ void KateLayoutCache::updateViewCache(const KTextEditor::Cursor startPos, int ne
         m_textLayouts.resize(newViewLineCount);
     }
 
-    KateLineLayout *l = line(realLine);
+    auto l = line(realLine);
     for (int i = 0; i < newViewLineCount; ++i) {
         if (!l) {
             if ((size_t)i < m_textLayouts.size()) {
@@ -212,7 +212,7 @@ void KateLayoutCache::updateViewCache(const KTextEditor::Cursor startPos, int ne
     enableLayoutCache = false;
 }
 
-KateLineLayout *KateLayoutCache::line(int realLine, int virtualLine)
+KateLineLayout::Ptr KateLayoutCache::line(int realLine, int virtualLine)
 {
     if (auto l = m_lineLayouts.find(realLine)) {
         // ensure line is OK
