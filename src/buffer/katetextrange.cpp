@@ -229,7 +229,8 @@ void TextRange::fixLookup(KTextEditor::LineRange oldLineRange, KTextEditor::Line
         if ((lineRange.end() < block->startLine()) || (lineRange.start() >= (block->startLine() + block->lines()))) {
             block->removeRange(this);
         } else {
-            block->updateRange(this);
+            auto r = this;
+            block->updateRanges({&r, 1});
         }
 
         // ok, reached end block

@@ -16,6 +16,8 @@
 #include <ktexteditor/cursor.h>
 #include <ktexteditor_export.h>
 
+#include <span>
+
 namespace KTextEditor
 {
 class View;
@@ -225,7 +227,7 @@ public:
      * Will move the range to right set, either cached for one-line ranges or not.
      * @param range range to update
      */
-    void updateRange(TextRange *range);
+    void updateRanges(std::span<TextRange *> ranges);
 
     /**
      * Remove a range from this block.
