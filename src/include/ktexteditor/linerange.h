@@ -502,6 +502,13 @@ private:
  * Returns the hash value for @p range.
  */
 KTEXTEDITOR_EXPORT size_t qHash(KTextEditor::LineRange range, size_t seed = 0) noexcept;
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+/**
+ * QTestLib integration to have nice output in e.g. QCOMPARE failures.
+ */
+KTEXTEDITOR_EXPORT char *toString(const KTextEditor::LineRange &range);
+#endif
 }
 
 Q_DECLARE_TYPEINFO(KTextEditor::LineRange, Q_PRIMITIVE_TYPE);
@@ -511,6 +518,7 @@ Q_DECLARE_TYPEINFO(KTextEditor::LineRange, Q_PRIMITIVE_TYPE);
  */
 KTEXTEDITOR_EXPORT QDebug operator<<(QDebug s, KTextEditor::LineRange range);
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
 namespace QTest
 {
 // forward declaration of template in qtestcase.h
@@ -523,5 +531,6 @@ char *toString(const T &);
 template<>
 KTEXTEDITOR_EXPORT char *toString(const KTextEditor::LineRange &range);
 }
+#endif
 
 #endif

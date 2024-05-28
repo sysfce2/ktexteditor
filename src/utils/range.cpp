@@ -147,6 +147,7 @@ QString LineRange::toString() const
     return QStringLiteral("[%1, %2]").arg(m_start).arg(m_end);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
 namespace QTest
 {
 // Cursor: template specialization for QTest::toString()
@@ -177,4 +178,34 @@ char *toString(const KTextEditor::LineRange &range)
     ba += ']';
     return qstrdup(ba.data());
 }
+} // end namespace QtTest
+#else
+namespace KTextEditor
+{
+// Cursor: free function for QTest::toString()
+char *toString(const KTextEditor::Cursor &cursor)
+{
+    QByteArray ba = "Cursor[" + QByteArray::number(cursor.line()) + ", " + QByteArray::number(cursor.column()) + ']';
+    return qstrdup(ba.data());
 }
+
+// Range: free function for QTest::toString()
+char *toString(const KTextEditor::Range &range)
+{
+    QByteArray ba = "Range[";
+    ba += QByteArray::number(range.start().line()) + ", " + QByteArray::number(range.start().column()) + " - ";
+    ba += QByteArray::number(range.end().line()) + ", " + QByteArray::number(range.end().column());
+    ba += ']';
+    return qstrdup(ba.data());
+}
+
+// LineRange: free function for QTest::toString()
+char *toString(const KTextEditor::LineRange &range)
+{
+    QByteArray ba = "LineRange[";
+    ba += QByteArray::number(range.start()) + ", " + QByteArray::number(range.end());
+    ba += ']';
+    return qstrdup(ba.data());
+}
+}
+#endif
