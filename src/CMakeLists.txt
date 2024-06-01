@@ -333,6 +333,18 @@ set_target_properties(KF6TextEditor
    EXPORT_NAME "TextEditor"
 )
 
+add_executable(kate-script-tester
+    scripttester/scripttester.cpp
+    scripttester/scripttesterhelper.cpp
+)
+target_link_libraries(kate-script-tester
+    KF6::I18n
+    KF6::SyntaxHighlighting
+    Qt6::Qml
+    Qt6::Widgets
+    KF6TextEditor
+)
+
 # precompiled headers support
 if(ENABLE_PCH)
     target_precompile_headers(KF6TextEditor
