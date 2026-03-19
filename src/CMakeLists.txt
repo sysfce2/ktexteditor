@@ -1,6 +1,7 @@
 # jscripts for the part
 add_subdirectory( script/data )
 
+set(KTEXTEDITOR_OPTIONAL_LIBS)
 if(EditorConfig_FOUND)
     SET (CMAKE_REQUIRED_LIBRARIES ${EditorConfig_LIBRARIES})
     set (KTEXTEDITOR_OPTIONAL_LIBS ${KTEXTEDITOR_OPTIONAL_LIBS} ${EditorConfig_LIBRARIES})
