@@ -1101,35 +1101,29 @@ void KateDocumentTest::testDocumentDeduplication()
     const QString untitledHello = i18n("Untitled (%1)", hello);
 
     KTextEditor::DocumentPrivate untitled1;
-    editor->registerDocument(&untitled1);
     QCOMPARE(untitled1.documentName(), untitled);
 
     KTextEditor::DocumentPrivate untitled2;
-    editor->registerDocument(&untitled2);
     QCOMPARE(untitled2.documentName(), untitled + QLatin1String(" (2)"));
 
     KTextEditor::DocumentPrivate hello1;
-    editor->registerDocument(&hello1);
     QCOMPARE(hello1.documentName(), untitled + QLatin1String(" (3)"));
     hello1.setText(hello);
     QCOMPARE(hello1.documentName(), untitledHello);
 
     KTextEditor::DocumentPrivate hello2;
-    editor->registerDocument(&hello2);
     // 3 again because hello1 got renamed.
     QCOMPARE(hello2.documentName(), untitled + QLatin1String(" (3)"));
     hello2.setText(hello);
     QCOMPARE(hello2.documentName(), untitledHello + QLatin1String(" (2)"));
 
     KTextEditor::DocumentPrivate fileDoc;
-    editor->registerDocument(&fileDoc);
     // 3 again because hello2 also got renamed.
     QCOMPARE(fileDoc.documentName(), untitled + QLatin1String(" (3)"));
     fileDoc.setUrl(QUrl(QStringLiteral("file:///tmp/test.txt")));
     QCOMPARE(fileDoc.documentName(), QStringLiteral("test.txt"));
 
     KTextEditor::DocumentPrivate fileDoc2;
-    editor->registerDocument(&fileDoc2);
     // 3 again because fileDoc also got renamed.
     QCOMPARE(fileDoc2.documentName(), untitled + QLatin1String(" (3)"));
     fileDoc2.setUrl(QUrl(QStringLiteral("file:///elsewhere/test.txt")));
