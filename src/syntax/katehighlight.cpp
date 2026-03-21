@@ -90,7 +90,12 @@ KateHighlighting::KateHighlighting(const KSyntaxHighlighting::Definition &def)
         for (const auto &enc : encodings) {
             properties.characterEncodingsPrefixStore.addPrefix(enc.second);
             properties.characterEncodings[enc.second] = enc.first;
-            properties.reverseCharacterEncodings[enc.first] = enc.second;
+
+            // don't do reverse encoding if the target is the null char
+            // we shall ignore such encodings for the reverse direction
+            if (!enc.first.isNull()) {
+                properties.reverseCharacterEncodings[enc.first] = enc.second;
+            }
         }
 
         // collect formats
