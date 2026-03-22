@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: katepart4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 00:40+0000\n"
+"POT-Creation-Date: 2026-03-22 00:39+0000\n"
 "PO-Revision-Date: 2017-07-30 15:55+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2277,7 +2277,7 @@ msgstr "Užverti dokumentą"
 msgid "Automatic reload the document when it was changed on disk"
 msgstr ""
 
-#: document/katedocument.cpp:2246
+#: document/katedocument.cpp:2307
 #, kde-format
 msgid ""
 "The file %1 could not be loaded, as it was not possible to read from it.<br /"
@@ -2287,25 +2287,25 @@ msgstr ""
 "\n"
 "Patikrinkite, ar turite skaitymo leidimą šiam failui."
 
-#: document/katedocument.cpp:2251
+#: document/katedocument.cpp:2312
 #, kde-format
 msgctxt "translators: you can also translate 'Try Again' with 'Reload'"
 msgid "Try Again"
 msgstr "Mėginti vėl"
 
-#: document/katedocument.cpp:2255 document/katedocument.cpp:6447
+#: document/katedocument.cpp:2316 document/katedocument.cpp:6532
 #, kde-format
 msgid "&Close"
 msgstr "&Užverti"
 
-#: document/katedocument.cpp:2256 document/katedocument.cpp:6448
+#: document/katedocument.cpp:2317 document/katedocument.cpp:6533
 #, fuzzy, kde-format
 #| msgid "Close message"
 msgctxt "Close the message being displayed"
 msgid "Close message"
 msgstr "Užverti žinutę"
 
-#: document/katedocument.cpp:2388
+#: document/katedocument.cpp:2449
 #, kde-format
 msgid ""
 "The file %1 was opened with %2 encoding but contained invalid characters."
@@ -2319,7 +2319,7 @@ msgstr ""
 "tinkamą koduotę, arba įjunkite keitimo veikseną per meniu, jei norite keisti "
 "failą."
 
-#: document/katedocument.cpp:2407
+#: document/katedocument.cpp:2468
 #, kde-format
 msgid ""
 "The file %1 was opened and contained lines longer than the configured Line "
@@ -2332,17 +2332,17 @@ msgstr ""
 "rodomos per kelias eilutes. Kadangi dokumento įrašymas pakeistų eilučių "
 "skaidymą, dabar dokumentas atvertas tik skaitymui."
 
-#: document/katedocument.cpp:2414
+#: document/katedocument.cpp:2475
 #, kde-format
 msgid "Temporarily raise limit and reload file"
 msgstr "Laikinai padidinti ribą ir iš naujo įkelti failą"
 
-#: document/katedocument.cpp:2417
+#: document/katedocument.cpp:2478
 #, kde-format
 msgid "Close"
 msgstr "Užverti"
 
-#: document/katedocument.cpp:2444
+#: document/katedocument.cpp:2505
 #, kde-format
 msgid ""
 "Do you really want to save this unmodified file? You could overwrite changed "
@@ -2351,18 +2351,18 @@ msgstr ""
 "Ar Jūs tikrai norite išsaugoti šį pakeistą failą?  Tai galite perrašyti "
 "diske jau esančius pakeistus duomenis."
 
-#: document/katedocument.cpp:2445
+#: document/katedocument.cpp:2506
 #, kde-format
 msgid "Trying to Save Unmodified File"
 msgstr "Bandoma įrašyti nepakeistą failą"
 
-#: document/katedocument.cpp:2446 document/katedocument.cpp:2457
-#: document/katedocument.cpp:2473
+#: document/katedocument.cpp:2507 document/katedocument.cpp:2518
+#: document/katedocument.cpp:2534
 #, kde-format
 msgid "Save Nevertheless"
 msgstr "Vis tiek įrašyti"
 
-#: document/katedocument.cpp:2455
+#: document/katedocument.cpp:2516
 #, kde-format
 msgid ""
 "Do you really want to save this file? Both your open file and the file on "
@@ -2372,14 +2372,14 @@ msgstr ""
 "failas, tiek failas diske buvo pakeisti.  Gali būti prarasti tam tikri "
 "duomenys."
 
-#: document/katedocument.cpp:2456 document/katedocument.cpp:2472
-#: document/katedocument.cpp:2792 syntax/katethemeconfig.cpp:1215
+#: document/katedocument.cpp:2517 document/katedocument.cpp:2533
+#: document/katedocument.cpp:2853 syntax/katethemeconfig.cpp:1215
 #: syntax/katethemeconfig.cpp:1371
 #, kde-format
 msgid "Possible Data Loss"
 msgstr "Galimi duomenų praradimai"
 
-#: document/katedocument.cpp:2470
+#: document/katedocument.cpp:2531
 #, kde-format
 msgid ""
 "The selected encoding cannot encode every Unicode character in this "
@@ -2388,7 +2388,7 @@ msgstr ""
 "Pasirinkta koduotė negali užkoduoti kiekvieno šio dokumento unikodo "
 "simbolio. Ar tikrai norite įrašyti failą? Galite prarasti duomenis."
 
-#: document/katedocument.cpp:2540
+#: document/katedocument.cpp:2601
 #, fuzzy, kde-format
 #| msgid ""
 #| "The document could not be saved, as it was not possible to write to %1.\n"
@@ -2407,7 +2407,7 @@ msgstr ""
 "Patikrinkite, ar turite rašymo leidimą šiam failui ir ar yra užtektinai "
 "tuščios vietos diske."
 
-#: document/katedocument.cpp:2661
+#: document/katedocument.cpp:2722
 #, kde-format
 msgid ""
 "For file %1 no backup copy could be created before saving. If an error "
@@ -2420,50 +2420,56 @@ msgstr ""
 "ta, kad laikmenoje, į kurią rašote, nebėra vietos arba aplankas, į kurį "
 "rašote jums prieinamas tik skaitymui."
 
-#: document/katedocument.cpp:2665
+#: document/katedocument.cpp:2726
 #, kde-format
 msgid "Failed to create backup copy."
 msgstr "Nepavyko sukurti atsarginės kopijos"
 
-#: document/katedocument.cpp:2666
+#: document/katedocument.cpp:2727
 #, kde-format
 msgid "Try to Save Nevertheless"
 msgstr "Vis bandyti tiek įrašyti"
 
-#: document/katedocument.cpp:2791
+#: document/katedocument.cpp:2852
 #, kde-format
 msgid "Do you really want to continue to close this file? Data loss may occur."
 msgstr ""
 "Ar Jūs tikrai norite tęsti šios failo uždarymą?  Gali būti prarasti duomenys."
 
-#: document/katedocument.cpp:2793
+#: document/katedocument.cpp:2854
 #, kde-format
 msgid "Close Nevertheless"
 msgstr "Vis tiek užverti"
 
-#: document/katedocument.cpp:4610
+#: document/katedocument.cpp:4641
+#, fuzzy, kde-format
+#| msgid "Untitled"
+msgid "Untitled (%1)"
+msgstr "Be pavadinimo"
+
+#: document/katedocument.cpp:4643
 #, kde-format
 msgid "Untitled"
 msgstr "Be pavadinimo"
 
-#: document/katedocument.cpp:4735 document/katedocument.cpp:4966
-#: document/katedocument.cpp:4976 document/katedocument.cpp:5775
-#: document/katedocument.cpp:5962
+#: document/katedocument.cpp:4820 document/katedocument.cpp:5051
+#: document/katedocument.cpp:5061 document/katedocument.cpp:5860
+#: document/katedocument.cpp:6047
 #, kde-format
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: document/katedocument.cpp:4738
+#: document/katedocument.cpp:4823
 #, kde-format
 msgid "Save failed"
 msgstr "Įrašymas nepavyko"
 
-#: document/katedocument.cpp:4987
+#: document/katedocument.cpp:5072
 #, kde-format
 msgid "Save Copy of File"
 msgstr "Išsaugoti kopiją failo"
 
-#: document/katedocument.cpp:4999
+#: document/katedocument.cpp:5084
 #, kde-format
 msgid ""
 "The document could not be saved, as it was not possible to write to %1.\n"
@@ -2476,7 +2482,7 @@ msgstr ""
 "Patikrinkite, ar turite rašymo leidimą šiam failui ir ar yra užtektinai "
 "tuščios vietos diske."
 
-#: document/katedocument.cpp:5289
+#: document/katedocument.cpp:5374
 #, kde-format
 msgid ""
 "Using deprecated modeline 'remove-trailing-space'. Please replace with "
@@ -2485,7 +2491,7 @@ msgid ""
 "remove-trailing-spaces"
 msgstr ""
 
-#: document/katedocument.cpp:5295
+#: document/katedocument.cpp:5380
 #, kde-format
 msgid ""
 "Using deprecated modeline 'replace-trailing-space-save'. Please replace with "
@@ -2494,19 +2500,19 @@ msgid ""
 "remove-trailing-spaces"
 msgstr ""
 
-#: document/katedocument.cpp:5609
+#: document/katedocument.cpp:5694
 #, fuzzy, kde-format
 #| msgid "The file '%1' was modified by another program."
 msgid "The file '%1' was modified on disk."
 msgstr "Failą „%1“ pakeitė kita programa."
 
-#: document/katedocument.cpp:5611
+#: document/katedocument.cpp:5696
 #, fuzzy, kde-format
 #| msgid "The file '%1' was deleted by another program."
 msgid "The file '%1' was deleted or moved on disk."
 msgstr "Failą „%1“ ištrynė kita programa."
 
-#: document/katedocument.cpp:5947
+#: document/katedocument.cpp:6032
 #, kde-format
 msgid ""
 "The document \"%1\" has been modified.\n"
@@ -2515,17 +2521,17 @@ msgstr ""
 "Dokumentas „%1“ buvo pakeistas.\n"
 "Ar norite jį įrašyti, ar atmesti pakeitimus?"
 
-#: document/katedocument.cpp:5950
+#: document/katedocument.cpp:6035
 #, kde-format
 msgid "Close Document"
 msgstr "Užverti dokumentą"
 
-#: document/katedocument.cpp:6061
+#: document/katedocument.cpp:6146
 #, kde-format
 msgid "The file <a href=\"%1\">%2</a> is still loading."
 msgstr "Failas <a href=\"%1\">%2</a> vis dar įkeliamas."
 
-#: document/katedocument.cpp:6066
+#: document/katedocument.cpp:6151
 #, kde-format
 msgid "&Abort Loading"
 msgstr "&Nutraukti įkėlimą"
