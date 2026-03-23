@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-02-23 08:01+0300\n"
+"PO-Revision-Date: 2026-03-22 11:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: completion/katecompletionmodel.cpp:147
 #, kde-format
@@ -2351,15 +2351,14 @@ msgid "Close Nevertheless"
 msgstr "Yine de Kapat"
 
 #: document/katedocument.cpp:4641
-#, fuzzy, kde-format
-#| msgid "Untitled"
+#, kde-format
 msgid "Untitled (%1)"
-msgstr "Adsız"
+msgstr "Başlıksız (%1)"
 
 #: document/katedocument.cpp:4643
 #, kde-format
 msgid "Untitled"
-msgstr "Adsız"
+msgstr "Başlıksız"
 
 #: document/katedocument.cpp:4820 document/katedocument.cpp:5051
 #: document/katedocument.cpp:5061 document/katedocument.cpp:5860
