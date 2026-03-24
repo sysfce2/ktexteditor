@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-02-22 15:29+0100\n"
+"PO-Revision-Date: 2026-03-23 17:12+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2377,10 +2377,9 @@ msgid "Close Nevertheless"
 msgstr "Claude nonobstante isto"
 
 #: document/katedocument.cpp:4641
-#, fuzzy, kde-format
-#| msgid "Untitled"
+#, kde-format
 msgid "Untitled (%1)"
-msgstr "Sin titulo"
+msgstr "Sin titulo (%1)"
 
 #: document/katedocument.cpp:4643
 #, kde-format

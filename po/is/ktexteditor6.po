@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: katepart4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-22 00:39+0000\n"
-"PO-Revision-Date: 2026-02-25 10:37+0000\n"
+"PO-Revision-Date: 2026-03-23 10:43+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -29,7 +29,7 @@ msgstr ""
 #: completion/katecompletionmodel.cpp:147
 #, kde-format
 msgid "Argument-hints"
-msgstr "Frumbreyta-tillögur"
+msgstr "Frumbreytu-tillögur"
 
 #: completion/katecompletionmodel.cpp:148
 #, kde-format
@@ -175,7 +175,8 @@ msgstr "Földun kóðablokka:"
 #, kde-format
 msgid ""
 "If this option is checked, every new view will display marks for folding."
-msgstr "Ef hakað er hér birtast földunarmerki í öllum nýjum ritilsgluggum."
+msgstr ""
+"Ef merkt er við þetta birtast földunarmerki í öllum nýjum ritilsgluggum."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkShowFoldingMarkers)
 #: dialogs/bordersappearanceconfigwidget.ui:35
@@ -190,7 +191,7 @@ msgid ""
 "If checked, hovering over a folded region shows a preview of the folded text "
 "in a popup."
 msgstr ""
-"Ef hakað er hér birtist textinn sem er faldaður í sprettiglugga þegar "
+"Ef merkt er við þetta birtist textinn sem er faldaður í sprettiglugga þegar "
 "bendillinn sveimar yfir faldaða svæðinu."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkShowFoldingPreview)
@@ -249,7 +250,8 @@ msgid ""
 "If this option is checked, every new view will display line numbers on the "
 "left hand side."
 msgstr ""
-"Ef hakað er hér birtast línunúmer vinstra megin í nýopnuðum ritilsgluggum."
+"Ef merkt er við þetta birtast línunúmer vinstra megin í nýopnuðum "
+"ritilsgluggum."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkLineNumbers)
 #: dialogs/bordersappearanceconfigwidget.ui:112
@@ -264,8 +266,8 @@ msgid ""
 "If this option is checked, a small indicator for modified and saved lines is "
 "shown on the left hand side."
 msgstr ""
-"Ef hakað er hér er sýnt lítið merki vinstra megin fyrir breyttar og vistaðar "
-"línur"
+"Ef merkt er við þetta er sýnt lítið merki vinstra megin fyrir breyttar og "
+"vistaðar línur"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkShowLineModification)
 #: dialogs/bordersappearanceconfigwidget.ui:122
@@ -286,8 +288,8 @@ msgid ""
 "<p>If this option is checked, every new view will show marks on the vertical "
 "scrollbar.</p><p>These marks will show bookmarks, for instance.</p>"
 msgstr ""
-"<p>Ef hakað er hér birtast merki á lóðréttu skrunstikunni í öllum nýjum "
-"ritilsgluggum.</p><p>Merkin sýna t.d. bókamerki.</p>"
+"<p>Ef merkt er við þetta birtast merki á lóðréttu skrunstikunni í öllum "
+"nýjum ritilsgluggum.</p><p>Merkin sýna t.d. bókamerki.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, chkScrollbarPreview)
 #: dialogs/bordersappearanceconfigwidget.ui:162
@@ -296,8 +298,8 @@ msgid ""
 "<p>If this option is checked, hovering over the vertical scrollbar will show "
 "a preview of the text.</p>"
 msgstr ""
-"<p>Ef hakað er hér birtist forskoðun á textanum þegar bendillinn sveimar "
-"yfir lóðréttu skrunstikunni.</p>"
+"<p>Ef merkt er við þetta birtist forskoðun á textanum þegar bendillinn "
+"sveimar yfir lóðréttu skrunstikunni.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkScrollbarPreview)
 #: dialogs/bordersappearanceconfigwidget.ui:165
@@ -342,7 +344,8 @@ msgid ""
 "If this option is checked, every new view will show a mini map on the "
 "vertical scrollbar."
 msgstr ""
-"Ef hakað er hér birtist yfirlitsmynd yfir skrána á lóðréttu skrunstikunni."
+"Ef merkt er við þetta birtist yfirlitsmynd yfir skrána á lóðréttu "
+"skrunstikunni."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkScrollbarMiniMap)
 #: dialogs/bordersappearanceconfigwidget.ui:227
@@ -363,7 +366,7 @@ msgid ""
 "If this option is checked, every new view will show a mini map of the whole "
 "document on the vertical scrollbar."
 msgstr ""
-"Ef hakað er hér birtist yfirlitsmynd yfir allt skjalið á lóðréttu "
+"Ef merkt er við þetta birtist yfirlitsmynd yfir allt skjalið á lóðréttu "
 "skrunstikunni."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkScrollbarMiniMapAll)
@@ -564,8 +567,8 @@ msgid ""
 "<p>If this option is checked, a vertical line will be drawn at the word wrap "
 "column as defined in the <strong>Editing</strong> properties.</p>"
 msgstr ""
-"<p>Ef hakað er hér verður lóðrétt lína teiknuð við línuskiladálkinn eins og "
-"hann er skilgreindur í eiginleikum fyrir <strong>Ritun</strong>."
+"<p>Ef merkt er við þetta verður lóðrétt lína teiknuð við línuskiladálkinn "
+"eins og hann er skilgreindur í eiginleikum fyrir <strong>Ritun</strong>."
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkShowStaticWordWrapMarker)
 #: dialogs/editconfigwidget.ui:42
@@ -2339,10 +2342,9 @@ msgid "Close Nevertheless"
 msgstr "Loka samt sem áður"
 
 #: document/katedocument.cpp:4641
-#, fuzzy, kde-format
-#| msgid "Untitled"
+#, kde-format
 msgid "Untitled (%1)"
-msgstr "Án titils"
+msgstr "Án titils (%1)"
 
 #: document/katedocument.cpp:4643
 #, kde-format
@@ -7119,7 +7121,7 @@ msgid ""
 "If this option is checked, whitespaces in this document will be visible.<br /"
 "><br />This is only a view option, meaning the document will not be changed."
 msgstr ""
-"Ef hakað er hér verða bilmerki í skjalinu sýnileg.<br /><br />Þetta er "
+"Ef merkt er við þetta verða bilmerki í skjalinu sýnileg.<br /><br />Þetta er "
 "einungis sjónræn breyting, skjalið sjálft breytist ekki."
 
 #: view/kateview.cpp:782
@@ -7134,9 +7136,9 @@ msgid ""
 "on the screen.<br /><br />This is only a view option, meaning the document "
 "will not be changed."
 msgstr ""
-"Ef hakað er hér verður heldur textalína áfram í næstu línu þegar hún nær "
-"lengra en að brún gluggans.<br /><br />Þetta er einungis sjónræn breyting, "
-"skjalið sjálft breytist ekki."
+"Ef merkt er við þetta verður heldur textalína áfram í næstu línu þegar hún "
+"nær lengra en að brún gluggans.<br /><br />Þetta er einungis sjónræn "
+"breyting, skjalið sjálft breytist ekki."
 
 #: view/kateview.cpp:790
 #, kde-format
@@ -7174,8 +7176,8 @@ msgid ""
 "If this option is checked, the text lines will be wrapped at the column "
 "defined in the editing properties."
 msgstr ""
-"Ef hakað er hér er texta skipt á milli lína við dálkinn sem tilgreindur er í "
-"ritunarstillingunum."
+"Ef merkt er við þetta er texta skipt á milli lína við dálkinn sem "
+"tilgreindur er í ritunarstillingunum."
 
 #: view/kateview.cpp:807
 #, kde-format
