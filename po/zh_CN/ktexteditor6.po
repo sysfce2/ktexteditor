@@ -2236,10 +2236,9 @@ msgid "Close Nevertheless"
 msgstr "仍然关闭"
 
 #: document/katedocument.cpp:4641
-#, fuzzy, kde-format
-#| msgid "Untitled"
+#, kde-format
 msgid "Untitled (%1)"
-msgstr "无标题"
+msgstr ""
 
 #: document/katedocument.cpp:4643
 #, kde-format
