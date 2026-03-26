@@ -2296,10 +2296,9 @@ msgid "Close Nevertheless"
 msgstr "Přesto uzavřít"
 
 #: document/katedocument.cpp:4641
-#, fuzzy, kde-format
-#| msgid "Untitled"
+#, kde-format
 msgid "Untitled (%1)"
-msgstr "Nepojmenovaný"
+msgstr "Nepojmenovaný (%1)"
 
 #: document/katedocument.cpp:4643
 #, kde-format
