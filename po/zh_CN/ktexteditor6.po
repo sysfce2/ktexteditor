@@ -2238,7 +2238,7 @@ msgstr "仍然关闭"
 #: document/katedocument.cpp:4641
 #, kde-format
 msgid "Untitled (%1)"
-msgstr ""
+msgstr "无标题 (%1)"
 
 #: document/katedocument.cpp:4643
 #, kde-format
